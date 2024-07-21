@@ -82,4 +82,6 @@ D:\WebsiteBanHang\bin\PagedList.dll
 D:\WebsiteBanHang\bin\PagedList.Mvc.dll
 D:\WebsiteBanHang\bin\PagedList.xml
 D:\WebsiteBanHang\bin\PagedList.Mvc.xml
-D:\WebsiteBanHang\obj\Debug\WebsiteBanHang.csprojResolveAssemblyReference.cache
+D:\WebsiteBanHang\obj\Debug\WebsiteBanHang.csproj.AssemblyReference.cache
+D:\WebsiteBanHang\obj\Debug\WebsiteBanHang.csproj.CoreCompileInputs.cache
+D:\WebsiteBanHang\obj\Debug\WebsiteBanHang.csproj.CopyComplete

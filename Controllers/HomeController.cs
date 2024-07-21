@@ -15,10 +15,12 @@ namespace WebsiteBanHang.Controllers
         WebsiteBanHangEntities objWebsiteBanHangEntities = new WebsiteBanHangEntities();
         public ActionResult Index()
         {
-            HomeModel objHomeModel = new HomeModel();
-            objHomeModel.ListCategory = objWebsiteBanHangEntities.Categories.ToList();
+            HomeModel objHomeModel = new HomeModel
+            {
+                ListCategory = objWebsiteBanHangEntities.Categories.ToList(),
 
-            objHomeModel.ListProduct = objWebsiteBanHangEntities.Products.ToList();
+                ListProduct = objWebsiteBanHangEntities.Products.ToList()
+            };
             return View(objHomeModel);
         }
 
