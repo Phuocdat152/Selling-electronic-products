@@ -1,0 +1,44 @@
+﻿@model List<WebsiteBanHang.Context.Product>
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var searchKey = ViewBag.SearchKey as string; // Lấy từ khóa tìm kiếm từ ViewBag
+}
+
+<h2><i class="fa fa-search"></i>Kết quả tìm kiếm: "@searchKey"</h2>
+@if (Model.Any())
+{
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        <span class="badge"> 4.0 <i class="fa fa-star" style="color:orange"></i></span>
+                        <a href="@Url.Action("Detail","Product", new { ID = item.ID})">
+                            <img src="~/Content/images/items/@item.Avatar">
+                        </a>
+                    </div> <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <a href="@Url.Action("Detail","Product", new { ID = item.ID})" class="title mb-2">@item.Name</a>
+                        <div class="price-wrap">
+                            <div class="price-old-category ">@string.Format("{0:N0}", item.Price)₫</div>
+                            <span class="price">@string.Format("{0:N0}", item.PriceDiscount)₫</span>
+                            <span class="badge badge-danger ml-3"> -10% </span>
+                        </div> <!-- price-wrap.// -->
+
+
+
+                    </figcaption>
+                </figure>
+            </div> <!-- col.// -->
+        }
+    </div> <!-- row end.// -->
+}
+else
+{
+<p><i class="fa fa-lock"></i>Không tìm thấy sản phẩm nào khớp với lựa chọn của bạn.</p>
+
+}

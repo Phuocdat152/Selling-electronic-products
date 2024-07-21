@@ -1,0 +1,219 @@
+﻿@*@model List<WebsiteBanHang.Context.Product>*@
+@model PagedList.IPagedList<WebsiteBanHang.Context.Product>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+
+        <!-- ============================  FILTER TOP  ================================= -->
+        <!--<div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">Filter by</div>--> <!-- col.// -->
+                    <!--<div class="col-md-10">
+                        <ul class="list-inline">
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">   Supplier type </a>
+                                <div class="dropdown-menu p-3" style="max-width:400px;">
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> Good supplier
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> Best supplier
+                                    </label>
+                                    <label class="form-check">
+                                        <input type="radio" name="myfilter" class="form-check-input"> New supplier
+                                    </label>
+                                </div>--> <!-- dropdown-menu.// -->
+                            <!--</li>
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">  Country </a>
+                                <div class="dropdown-menu p-3">
+                                    <label class="form-check"> 	 <input type="checkbox" class="form-check-input"> China    </label>
+                                    <label class="form-check">   	 <input type="checkbox" class="form-check-input"> Japan      </label>
+                                    <label class="form-check">    <input type="checkbox" class="form-check-input"> Uzbekistan  </label>
+                                    <label class="form-check">  <input type="checkbox" class="form-check-input"> Russia     </label>
+                                </div>--> <!-- dropdown-menu.// -->
+                            <!--</li>
+                            <li class="list-inline-item mr-3 dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Feature</a>
+                                <div class="dropdown-menu">
+                                    <a href="" class="dropdown-item">Anti backterial</a>
+                                    <a href="" class="dropdown-item">With buttons</a>
+                                    <a href="" class="dropdown-item">Extra safety</a>
+                                </div>
+                            </li>
+                            <li class="list-inline-item mr-3"><a href="#">Color</a></li>
+                            <li class="list-inline-item mr-3"><a href="#">Size</a></li>
+                            <li class="list-inline-item mr-3">
+                                <div class="form-inline">
+                                    <label class="mr-2">Price</label>
+                                    <input class="form-control form-control-sm" placeholder="Min" type="number">
+                                    <span class="px-2"> - </span>
+                                    <input class="form-control form-control-sm" placeholder="Max" type="number">
+                                    <button type="submit" class="btn btn-sm btn-light ml-2">Ok</button>
+                                </div>
+                            </li>
+                            <li class="list-inline-item mr-3">
+                                <label class="custom-control mt-1 custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <div class="custom-control-label">
+                                        Ready to ship
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>--> <!-- col.// -->
+                <!--</div>--> <!-- row.// -->
+            <!--</div>--> <!-- card-body .// -->
+        <!--</div>--> <!-- card.// -->
+        <!-- ============================ FILTER TOP END.// ================================= -->
+
+        <header class="mb-3">
+            <div class="form-inline">
+                @*<strong class="mr-md-auto"> Model</strong>*@
+                @foreach (var item in Model.Take(1))
+                {
+                    if (item.CategoryId == 3)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Cảm biến</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 2)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Arduino</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 7)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Đèn LED</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 8)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Module</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 9)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Dụng cụ, Phụ kiện điện tử</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 10)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> PIN</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 11)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Nguồn adapter</strong>
+                        </a>
+                    }
+                    else if (item.CategoryId == 13)
+                    {
+                        <a>
+
+                            <strong class="mr-md-auto h4"> Màn hình LCD</strong>
+                        </a>
+                    }
+
+                    else
+                    {
+                        <a>
+                            @Html.DisplayFor(modelItem => item.CategoryId)
+                        </a>
+                    }
+                }
+
+                @*<select class="mr-2 form-control">
+            <option>Latest items</option>
+            <option>Trending</option>
+            <option>Most Popular</option>
+            <option>Cheapest</option>
+        </select>*@
+            </div>
+        </header><!-- sect-heading -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <figure class="card card-product-grid">
+                        <div class="img-wrap">
+                            <span class="badge"> 4.0 <i class="fa fa-star" style="color:orange"></i></span>
+                            <a href="@Url.Action("Detail","Product", new { ID = item.ID})">
+                                <img src="~/Content/images/items/@item.Avatar">
+                            </a>
+                        </div> <!-- img-wrap.// -->
+                        <figcaption class="info-wrap">
+                            <a href="@Url.Action("Detail","Product", new { ID = item.ID})" class="title mb-2">@item.Name</a>
+                            <div class="price-wrap">
+                                <div class="price-old-category ">@string.Format("{0:N0}", item.Price)₫</div>
+                                <span class="price">@string.Format("{0:N0}", item.PriceDiscount)₫</span>
+                                <span class="badge badge-danger ml-3"> -10% </span>
+                            </div> <!-- price-wrap.// -->
+
+
+
+                        </figcaption>
+                    </figure>
+                </div> <!-- col.// -->
+            }
+        </div> <!-- row end.// -->
+        @*<nav class="mb-4" aria-label="Page navigation sample">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>*@
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<div class="pagination-container">
+    <span class="page-info">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    </span>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductCategory", new { page = Model.PageNumber - 1, currentFilter = ViewBag.CurrentFilter })">Trước</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("ProductCategory", new { page = i, currentFilter = ViewBag.CurrentFilter })">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber >= Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductCategory", new { page = Model.PageNumber + 1, currentFilter = ViewBag.CurrentFilter })">Sau</a>
+            </li>
+        </ul>
+    </nav>
+</div>

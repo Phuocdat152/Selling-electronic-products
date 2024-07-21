@@ -1,0 +1,210 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <title>Website Bán Bàng</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+    <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <!-- jQuery -->
+    <script src="~/Scripts/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap4 files-->
+    <script src="~/Scripts/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- Font awesome 5 -->
+    <link href="~/Content/fonts/fontawesome/css/all.min.css" rel="stylesheet" />
+    <!-- custom style -->
+    <link href="~/Content/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- custom javascript -->
+    <script src="~/Scripts/js/script.js" type="text/javascript"></script>
+
+
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/js/jquery.hoverIntent.min.js"></script>
+    <script src="~/Scripts/js/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/js/superfish.min.js"></script>
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <!-- Main JS File -->
+
+    <style>
+        .fixed-menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff; /* Màu nền của menu */
+            z-index: 1000; /* Đảm bảo menu hiển thị trên các phần khác */
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho menu (tuỳ chọn) */
+            border-bottom: 2px solid #ccc; /* Đường viền dưới với màu sắc và độ dày tuỳ chọn */
+        }
+
+        .header-main {
+            /* Điều chỉnh padding của phần header để tránh che phủ nội dung khi menu cố định */
+            padding-top: 20px; /* Tùy chỉnh giá trị này theo độ cao của menu */
+        }
+    </style>
+
+
+</head>
+<body>
+    <header class="section-header">
+        <section class="header-main border-bottom">
+            <div class="container-fluid fixed-menu">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2 col-md-6">
+                        <a href="~/Home/" class="brand-wrap">
+                            <img class="logo" src="~/Content/images/Logo-Xgear-300.png">
+                        </a> <!-- brand-wrap.// -->
+                    </div>
+
+                    <div class="col-xl-2, col-lg-2 col-md-6">
+                        <a class="btn btn-outline-danger" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Danh mục </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 2 })"><i class="fa fa-microchip text-muted mr-2"></i>Arduino</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 3 })"><i class="fa fa-memory text-muted mr-2"></i>Cảm biến</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 7 })"><i class="fa fa-lightbulb text-muted mr-2"></i>Đèn LED</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 8 })"><i class="fa fa-digital-tachograph text-muted mr-2"></i>Module</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 9 })"><i class="fa fa-screwdriver text-muted mr-2"></i>Dụng cụ, Phụ kiện điện tử</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 10 })"><i class="fa fa-battery-full text-muted mr-2"></i>PIN</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 11 })"><i class="fa fa-bolt text-muted mr-2"></i>Nguồn adapter</a>
+                            <a class="dropdown-item" href="@Url.Action("ProductCategory", "Category", new { id = 13 })"><i class="fa fa-chalkboard text-muted mr-2"></i>Màn hình LCD</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <form action="@Url.Action("Search", "Home")" method="post" class="search-header">
+                            <div class="input-group w-100">
+                                @*<select class="custom-select border-right" name="category_name">
+                                        <option value="">Tất cả</option>
+                                        <option value="codex">Special</option>
+                                        <option value="comments">Only best</option>
+                                        <option value="content">Latest</option>
+                                    </select>*@
+                                <input type="text" class="form-control" name="key" placeholder="Tìm kiếm sản phẩm">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form> <!-- search-wrap .end// -->
+                    </div> <!-- col.// -->
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="widgets-wrap float-md-right">
+                            @if (Session["idUser"] != null)
+                            {
+                                <div class="widget-header">
+                                    <a href="~/Admin/Home/Index" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-user-circle"></i>
+                                            <span class="" id=""></span>
+                                        </div>
+                                        <small class="text">Trang admin</small>
+                                    </a>
+                                </div>
+
+                                <div class="widget-header">
+                                    <a href="~/Home/Logout" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-sign-out-alt"></i>
+                                            <span class="" id=""></span>
+                                        </div>
+                                        <small class="text">Đăng Xuất </small>
+                                    </a>
+                                </div> }
+                            else
+                            {
+
+                                <div class="widget-header">
+                                    <a href="~/Home/Login" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-sign-in-alt"></i>
+                                            <span class="" id=""></span>
+                                        </div>
+                                        <small class="text">Đăng Nhập</small>
+                                    </a>
+                                </div>
+
+
+                                <div class="widget-header">
+                                    <a href="~/Home/Register" class="widget-view">
+                                        <div class="icon-area">
+                                            <i class="fa fa-user-plus"></i>
+                                            <span class="" id=""></span>
+                                        </div>
+                                        <small class="text">Đăng ký </small>
+                                    </a>
+                                </div>}
+
+
+                            <div class="widget-header">
+                                <a href="@Url.Action("Index","Cart")" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span class="notify" id="CartCount">@Session["count"]</span>
+                                    </div>
+                                    <small class="text"> Giỏ hàng </small>
+                                </a>
+                            </div>
+
+                            <div class="widget-header">
+                                <a href="@Url.Action("Index","News")" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-newspaper"></i>
+                                        <span class="" id=""></span>
+                                    </div>
+                                    <small class="text"> Tin tức </small>
+                                </a>
+                            </div>
+
+
+                        </div> <!-- widgets-wrap.// -->
+                    </div> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- container.// -->
+        </section> <!-- header-main .// -->
+    </header> <!-- section-header.// -->
+
+
+    @RenderBody()
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="section-footer bg-secondary">
+        <div class="container">
+            <section class="footer-bottom text-center">
+                <p class="text-white">Bảo mật - Dịch vụ - Hướng dẫn</p>
+                <p class="text-muted"> Designed by Nhóm01 | All rights reserved </p>
+                <br>
+            </section>
+        </div><!-- //container -->
+    </footer>
+    <!-- ========================= FOOTER END // ========================= -->
+</body>
+</html>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var header = document.querySelector('.header-main');
+        var fixedMenu = document.querySelector('.fixed-menu');
+        var headerHeight = header.offsetHeight;
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > headerHeight) {
+                fixedMenu.classList.add('fixed-menu');
+            } else {
+                fixedMenu.classList.remove('fixed-menu');
+            }
+        });
+    });
+</script>
